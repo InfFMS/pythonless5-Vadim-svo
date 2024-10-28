@@ -10,20 +10,26 @@
 
 import random
 
-N = int(input())
 a = []
-c = 0
-g2 = 1001
-for i in range (N):
+N = int(input())
+for i in range(N):
     b = random.randint(0, 100)
     a.append(b)
 print(a)
 
+g1 = []
+g2 = []
+
+fr = False
+
 for i in range(len(a)):
     for j in range(len(a)):
-        if i != j and a[i] == a[j] and j != g2:
-            print(f'значение:{a[i]} индексы {i} и {j}')
-            g2 = i
-            c+=1
-if c ==0:
-    print('нет')
+        if i != j and a[i] == a[j]:
+            if i not in g1 and j not in g2:
+                print(f'значение: {a[i]} индексы {i} и {j}')
+                g1.append(j)
+                g2.append(i)
+                fr = True
+
+if fr == False:
+    print('Нет')
