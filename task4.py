@@ -27,4 +27,5 @@ for i in range (len(a)):
     if abs(sred - a[i]) > m:
         k.append(a[i])
 
-print(k)
+b = [a for a in a if a not in k]
+print(b)
